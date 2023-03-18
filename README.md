@@ -464,7 +464,7 @@ class Discriminator(nn.Module):
 
 #### Loss Functions
 
-To define our loss functions for the generator and discriminator, we first need three building blocks.
+To define our loss functions for the generator and discriminator, we first need three "building block" losses; the combination of these losses allows for multiple sub-tasks to be learned at once.
 
 1. Pixel Loss (MSE)
 2. Content Loss (VGG)
@@ -489,7 +489,7 @@ class ContentLoss(nn.Module):
         return F.mse_loss(real_features, fake_features)
 ```
 
-From those building blocks, we can now define our generator and discriminator losses for training:
+Our generator and discriminator losses used for training are then defined as such:
 
 ```
 generator_loss =
